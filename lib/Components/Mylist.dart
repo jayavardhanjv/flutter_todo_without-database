@@ -25,7 +25,6 @@ class _MyListState extends State<MyList> {
   Color _getDateColor() {
     DateTime currentDate = DateTime.now();
 
-    // Extract year, month, and day from currentDate without time
     DateTime currentDateWithoutTime =
         DateTime(currentDate.year, currentDate.month, currentDate.day);
 
@@ -34,13 +33,11 @@ class _MyListState extends State<MyList> {
     int month = int.parse(dateParts[1]);
     int day = int.parse(dateParts[0]);
 
-    // Create a DateTime object with date information and time set to midnight
     DateTime taskDate = DateTime(year, month, day);
     String formattedDate = DateFormat('dd-MM-yyyy').format(taskDate);
     print("formattedDate");
     print(formattedDate);
 
-    // Compare the date parts of currentDate and taskDate
     if (taskDate == currentDateWithoutTime) {
       return Colors.yellow;
     } else if (taskDate.isBefore(currentDateWithoutTime)) {
